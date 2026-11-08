@@ -12,12 +12,28 @@ I build WordPress tools that are easy to use and look good: plugins and blocks t
 | [**Clear FAQ Block**](https://github.com/memberfixstudio-ind/clear-faq-block) | A Gutenberg FAQ block (`block.json` + React). Paste a whole FAQ at once. No front-end JavaScript, FAQ schema built in. |
 | [**Member Snapshot**](https://github.com/memberfixstudio-ind/member-snapshot) | One card that shows members their MemberPress plans, renewal dates and LearnDash course progress. Block or shortcode. |
 
+More small plugins, one a week: **[WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox)**
+
 ### What I work on
 
 - **Custom plugins:** admin tools, integrations and features built the WordPress way
 - **Gutenberg blocks:** custom blocks with clean editor UIs and light front-end output
 - **MemberPress and LearnDash:** membership sites, member dashboards, setup and fixes
 - **AI setups:** chat assistants, document extraction and workflow automation
+
+### What I'm learning
+
+<!-- LEARNING:START -->
+- **2026-11-08:** `<details>` elements that share a `name` attribute act as an accordion: opening one closes the others, with no JavaScript. I used it in Clear FAQ Block, giving each block its own name so two FAQs on a page don't interfere.
+<!-- LEARNING:END -->
+
+[All notes](NOTES.md)
+
+### This week
+
+<!-- WEEKLY:START -->
+Released three plugins: Command Deck, Clear FAQ Block and Member Snapshot.
+<!-- WEEKLY:END -->
 
 ### Also building
 
