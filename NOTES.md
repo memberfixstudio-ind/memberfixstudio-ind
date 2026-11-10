@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-10
+Use `WP_HTML_Tag_Processor` instead of regex when you change a block's rendered HTML: `next_tag( 'details' )`, then `set_attribute( 'name', $group )`, then `get_updated_html()`. `set_attribute()` replaces an existing attribute instead of duplicating it, and Clear FAQ Block uses this to give each accordion its own group name.
+
 ### 2026-11-09
 `esc_url_raw()` is the right sanitizer for a URL you store or hand to JavaScript, and it strips protocols like `javascript:` because they aren't in `wp_allowed_protocols()`. I added it to Command Deck, so actions from its `command_deck_actions` filter can't open a script URL.
 
