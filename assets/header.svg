@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+<title id="title">Rohan Salave — useful WordPress software</title><desc id="desc">Custom plugins, thoughtful interfaces, and working integrations. Open source by MemberFix Studio.</desc>
+<rect width="1280" height="360" rx="16" fill="#122b37"/>
+<rect x="48" y="48" width="62" height="62" rx="12" fill="#d8f3ea"/>
+<text x="79" y="88" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="27" fill="#122b37">RS</text>
+<text x="130" y="75" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#fff">Rohan Salave</text>
+<text x="130" y="104" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#b9d2d9">MemberFix Studio · Independent developer</text>
+<text x="48" y="203" font-family="Arial,Helvetica,sans-serif" font-size="60" font-weight="700" letter-spacing="-2" fill="#fff">Useful WordPress software.</text>
+<text x="48" y="250" font-family="Arial,Helvetica,sans-serif" font-size="25" fill="#d8f3ea">Clear interfaces. Careful integrations. Code you can inspect.</text>
+<text x="48" y="316" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#b9d2d9">Custom plugins / Gutenberg / WooCommerce / MemberPress / LearnDash</text>
+</svg>

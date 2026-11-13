@@ -1,73 +1,68 @@
-## Hi, I'm Rohan 👋
+![Rohan Salave — Useful WordPress software](assets/header.svg)
 
 **WordPress developer: custom plugins, Gutenberg blocks, MemberPress/LearnDash.**
 
-I build WordPress tools that make difficult work easier: clear interfaces, careful integrations and tests that exercise real WordPress behavior.
+I build WordPress tools that make everyday work easier: clear interfaces, careful integrations and tests against real WordPress behavior. My open-source projects show the code, the tradeoffs and the release evidence.
 
-### Featured project: Access Ledger for WooCommerce
+[Discuss a WordPress project on LinkedIn](https://www.linkedin.com/in/rohan-salave-362475189/) · [Browse the repositories](https://github.com/memberfixstudio-ind?tab=repositories)
 
-**A customer paid. Their download fails. Find the reason before resetting their access.**
+## Software you can install
 
-[Access Ledger](https://github.com/memberfixstudio-ind/access-ledger) gives store teams an order investigation screen, resumable scans and dated findings. It separates expired or exhausted access from mismatches, previews verified email corrections, and keeps an audit trail with guarded undo.
+### Client Brief Desk · collect, review, approve
+
+**Get the client details you need before the work begins.** A private workspace for project briefs: useful question presets, saved drafts, revision requests and approval of an exact submission. Clients see their own work; staff notes stay private. Conflicting edits preserve the draft instead of silently overwriting it.
+
+[![Client Brief Desk workspace with fictional demo records](https://raw.githubusercontent.com/memberfixstudio-ind/client-brief-desk/main/docs/dashboard.png)](https://github.com/memberfixstudio-ind/client-brief-desk)
+
+[Install v1.0](https://github.com/memberfixstudio-ind/client-brief-desk/releases/latest) · [Source](https://github.com/memberfixstudio-ind/client-brief-desk) · [Engineering case study](case-studies/client-brief-desk.md) · [Tests and limits](https://github.com/memberfixstudio-ind/client-brief-desk/blob/main/docs/VALIDATION.md)
+
+### Access Ledger · investigate failed WooCommerce downloads
+
+**A customer paid. Their download fails. Find the reason before changing their access.** Diagnose orders, scan for problems, preview a verified email correction and keep an audit trail with guarded undo. **v1.1** adds older findings, clear search scope and spreadsheet-safe CSV export.
 
 [![Access Ledger support workspace](https://raw.githubusercontent.com/memberfixstudio-ind/access-ledger/main/docs/dashboard.png)](https://github.com/memberfixstudio-ind/access-ledger)
 
-Built with WooCommerce order APIs, HPOS support and transactional writes that preserve download counts and logs. Real WordPress/MySQL tests cover stale previews, refunds, revoked permissions, authorization and concurrent download consumption; a browser test exercises the actual file download before correction, after correction and after undo.
+[Install v1.1](https://github.com/memberfixstudio-ind/access-ledger/releases/latest) · [Source](https://github.com/memberfixstudio-ind/access-ledger) · [Engineering case study](case-studies/access-ledger.md) · [Tests and limits](https://github.com/memberfixstudio-ind/access-ledger/blob/main/docs/VALIDATION.md)
 
-[Install the plugin](https://github.com/memberfixstudio-ind/access-ledger/releases/latest) · [Read the code](https://github.com/memberfixstudio-ind/access-ledger) · [Research and reviewer votes](https://github.com/memberfixstudio-ind/access-ledger/blob/main/docs/RESEARCH.md) · [Test evidence and limits](https://github.com/memberfixstudio-ind/access-ledger/blob/main/docs/VALIDATION.md)
+### Focused tools
 
-### More WordPress plugins
+| Project | Useful for | Built with |
+| --- | --- | --- |
+| [Command Deck](https://github.com/memberfixstudio-ind/command-deck) | Find admin screens and content with forgiving keyboard search | WordPress REST API · JavaScript |
+| [Clear FAQ Block](https://github.com/memberfixstudio-ind/clear-faq-block) | Paste and edit an FAQ; publish native accordions without front-end JavaScript | `block.json` · React · PHP |
+| [Member Snapshot](https://github.com/memberfixstudio-ind/member-snapshot) | Show membership plans and course progress in one card | MemberPress · LearnDash · block/shortcode |
+| [WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox) | Small, focused WordPress utilities | PHP · WordPress APIs |
 
-| Plugin | What it does |
-| --- | --- |
-| [**Command Deck**](https://github.com/memberfixstudio-ind/command-deck) | Press ⌘K anywhere in wp-admin to jump to any screen, post, page or user. Forgiving search, recent items, keyboard first. |
-| [**Clear FAQ Block**](https://github.com/memberfixstudio-ind/clear-faq-block) | A Gutenberg FAQ block (`block.json` + React). Paste a whole FAQ at once. No front-end JavaScript, FAQ schema built in. |
-| [**Member Snapshot**](https://github.com/memberfixstudio-ind/member-snapshot) | One card that shows members their MemberPress plans, renewal dates and LearnDash course progress. Block or shortcode. |
+## How I approach the work
 
-More focused tools: **[WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox)**
+- **Start with the task:** make the next action clear, including errors, empty states and keyboard use.
+- **Protect the data:** check permissions server-side, make changes explicit and preserve history where it matters.
+- **Test the outcome:** exercise real WordPress behavior, including failures and concurrent edits.
+- **Show the boundaries:** publish install instructions, changelogs, research, tests and known limits with the code.
 
-### What I work on
+Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting, MemberPress and LearnDash projects.
 
-- **Custom plugins:** admin tools, integrations and features built the WordPress way
-- **Gutenberg blocks:** custom blocks with clean editor UIs and light front-end output
-- **MemberPress and LearnDash:** membership sites, member dashboards, setup and fixes
-- **AI setups:** chat assistants, document extraction and workflow automation
-
-### What I'm learning
+## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-13:** An approval must refer to the answers actually reviewed. Client Brief Desk combines version checks and a transaction with preserved submission snapshots; a stale tab keeps its draft for comparison.
 - **2026-11-13:** Hook `load_plugin_textdomain()` on `init`, not `plugins_loaded`: since WordPress 6.7, translating a string before `init` triggers a `_load_textdomain_just_in_time` notice. I added it to Command Deck that way, with a `Domain Path` header pointing at `/languages`.
 - **2026-11-12:** WooCommerce’s permission regeneration can erase download history. Access Ledger instead changes one verified email field inside a transaction, with a conditional write and an audit record. A separate-process test checks that a concurrent download still consumes its allowance correctly.
 - **2026-11-11:** `php -l` only checks syntax for the PHP version running it, so a plugin that declares `Requires PHP: 7.4` should lint on 7.4 as well as 8.x: newer syntax like `match` or the `?->` nullsafe operator passes on 8.x and fails on 7.4. I added a GitHub Actions matrix (7.4, 8.1, 8.3) to Member Snapshot for exactly this.
 <!-- LEARNING:END -->
 
-[All notes](NOTES.md)
+[All development notes](NOTES.md)
 
-### This week
+## This week
 
 <!-- WEEKLY:START -->
-Built Access Ledger for WooCommerce after three independent reviewers compared the product directions and voted for download-access diagnostics. The release includes a support dashboard, guarded email corrections, integration tests and real-download browser checks. Earlier projects: Command Deck, Clear FAQ Block and Member Snapshot.
+Released Client Brief Desk: a complete client-intake and review workflow with private notes, preserved submissions and conflict recovery. Updated Access Ledger to v1.1 with older findings and safe CSV export. Added real WordPress tests, browser checks, changelogs and engineering case studies. Research names existing alternatives and separates intended benefits from measured results.
 <!-- WEEKLY:END -->
 
-### Also building
+## Also building
 
-**[SahlQuote](https://sahlquote.com)** turns a contractor's bill of quantities (PDF) into a draft priced quotation in Excel, in English or Arabic. It's built for UAE building-material suppliers.
+[**SahlQuote**](https://sahlquote.com) turns a contractor's bill of quantities into a draft priced quotation in Excel, in English or Arabic, for UAE building-material suppliers.
 
-### Tools
+**Main stack:** WordPress · PHP · JavaScript · React · Gutenberg · WooCommerce · MemberPress · LearnDash
 
-![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat&logo=wordpress&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-D97757?style=flat&logo=claude&logoColor=white)
-
-### Get in touch
-
-- LinkedIn: [linkedin.com/in/rohan-salave-362475189](https://www.linkedin.com/in/rohan-salave-362475189/)
-- Website: [sahlquote.com](https://sahlquote.com)
-
-I'm open to WordPress, MemberPress and LearnDash projects.
+[LinkedIn](https://www.linkedin.com/in/rohan-salave-362475189/) · [SahlQuote](https://sahlquote.com)
