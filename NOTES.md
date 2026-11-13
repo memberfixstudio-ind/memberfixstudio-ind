@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-13
+Hook `load_plugin_textdomain()` on `init`, not `plugins_loaded`: since WordPress 6.7, translating a string before `init` triggers a `_load_textdomain_just_in_time` notice. I added it to Command Deck that way, with a `Domain Path` header pointing at `/languages`.
+
 ### 2026-11-12
 WooCommerce’s permission regeneration can erase download history. Access Ledger instead changes one verified email field inside a transaction, with a conditional write and an audit record. A separate-process test checks that a concurrent download still consumes its allowance correctly.
 
