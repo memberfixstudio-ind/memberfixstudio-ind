@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-14
+Since WordPress 6.8, `wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' )` registers every block from one cached manifest instead of reading each `block.json` from disk; `wp-scripts build --blocks-manifest` generates the file, and 6.7 sites can fall back to `wp_register_block_metadata_collection()`. It matters most for plugins that ship many blocks.
+
 ### 2026-11-13
 An approval must refer to the answers actually reviewed. Client Brief Desk combines version checks and a transaction with preserved question-and-answer snapshots. The browser test opens two tabs, rejects the stale save and verifies that its draft survives loading the newer version.
 
