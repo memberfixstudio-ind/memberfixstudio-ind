@@ -1,14 +1,16 @@
 ![Rohan Salave — Useful WordPress software](assets/header.svg)
 
+# Rohan Salave — WordPress plugin developer
+
 **WordPress developer: custom plugins, Gutenberg blocks, MemberPress/LearnDash.**
 
-I build WordPress tools that make everyday work easier: clear interfaces, careful integrations and tests against real WordPress behavior. My open-source projects show the code, the tradeoffs and the release evidence.
+I'm Rohan Salave, the developer behind [MemberFix Studio](https://memberfix.studio/). I build WordPress tools that make everyday work easier: clear interfaces, careful integrations and tests against real WordPress behavior. My open-source projects show the code, the tradeoffs and the release evidence.
 
 [Discuss a WordPress project on LinkedIn](https://www.linkedin.com/in/rohan-salave-362475189/) · [Browse the repositories](https://github.com/memberfixstudio-ind?tab=repositories)
 
-## Software you can install
+## Open-source WordPress plugins you can install
 
-### Client Brief Desk · collect, review, approve
+### Client Brief Desk · WordPress client intake and approvals
 
 **Get the client details you need before the work begins.** A private workspace for project briefs: useful question presets, saved drafts, revision requests and approval of an exact submission. Clients see their own work; staff notes stay private. Conflicting edits preserve the draft instead of silently overwriting it.
 
@@ -64,4 +66,4 @@ Released Client Brief Desk: a complete client-intake and review workflow with pr
 
 **Main stack:** WordPress · PHP · JavaScript · React · Gutenberg · WooCommerce · MemberPress · LearnDash
 
-[LinkedIn](https://www.linkedin.com/in/rohan-salave-362475189/) · [SahlQuote](https://sahlquote.com)
+[MemberFix Studio](https://memberfix.studio/) · [LinkedIn](https://www.linkedin.com/in/rohan-salave-362475189/) · [SahlQuote](https://sahlquote.com)
