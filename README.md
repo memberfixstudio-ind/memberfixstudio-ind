@@ -57,7 +57,7 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## This week
 
 <!-- WEEKLY:START -->
-Released Client Brief Desk: a complete client-intake and review workflow with private notes, preserved submissions and conflict recovery. Updated Access Ledger to v1.1 with older findings and safe CSV export. Added real WordPress tests, browser checks, changelogs and engineering case studies. Research names existing alternatives and separates intended benefits from measured results.
+This week I shipped [Notice Tray](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/notice-tray), a small plugin that moves the pile of plugin and theme notices off the top of every wp-admin screen into a tray in the admin bar, while errors and "Settings saved" messages stay on the page. Command Deck now validates actions from its filter and loads its translations on `init`, Clear FAQ Block and Member Snapshot load their PHP and block editor translations, and both gained CI workflows that lint the PHP (Member Snapshot on 7.4, 8.1 and 8.3). Three of this week's notes went straight into code: `esc_url_raw()` for filtered URLs and `load_plugin_textdomain()` on `init` in Command Deck, and the multi-version PHP lint matrix in Member Snapshot.
 <!-- WEEKLY:END -->
 
 ## Also building
