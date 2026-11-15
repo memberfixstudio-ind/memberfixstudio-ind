@@ -33,7 +33,7 @@ I'm Rohan Salave, the developer behind [MemberFix Studio](https://memberfix.stud
 | [Command Deck](https://github.com/memberfixstudio-ind/command-deck) | Find admin screens and content with forgiving keyboard search | WordPress REST API · JavaScript |
 | [Clear FAQ Block](https://github.com/memberfixstudio-ind/clear-faq-block) | Paste and edit an FAQ; publish native accordions without front-end JavaScript | `block.json` · React · PHP |
 | [Member Snapshot](https://github.com/memberfixstudio-ind/member-snapshot) | Show membership plans and course progress in one card | MemberPress · LearnDash · block/shortcode |
-| [WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox) | Small, focused WordPress utilities | PHP · WordPress APIs |
+| [WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox) | Small, focused WordPress utilities, such as [Notice Tray](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/notice-tray) for tidying admin notices | PHP · WordPress APIs |
 
 ## How I approach the work
 
@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-15:** `KeyboardEvent.isComposing` (plus `keyCode === 229` for Safari) tells you an IME is mid-composition, so a keydown handler should return early or Enter will fire your action while someone is still confirming a Japanese or Chinese word. I added that guard to Command Deck's result list.
 - **2026-11-14:** Since WordPress 6.8, `wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' )` registers every block from one cached manifest instead of reading each `block.json` from disk; `wp-scripts build --blocks-manifest` generates the file, and 6.7 sites can fall back to `wp_register_block_metadata_collection()`. It matters most for plugins that ship many blocks.
 - **2026-11-13:** An approval must refer to the answers actually reviewed. Client Brief Desk combines version checks and a transaction with preserved submission snapshots; a stale tab keeps its draft for comparison.
-- **2026-11-13:** Hook `load_plugin_textdomain()` on `init`, not `plugins_loaded`: since WordPress 6.7, translating a string before `init` triggers a `_load_textdomain_just_in_time` notice. I added it to Command Deck that way, with a `Domain Path` header pointing at `/languages`.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
