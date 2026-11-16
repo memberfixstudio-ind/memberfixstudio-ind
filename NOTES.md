@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-16
+When a plugin stores per-user settings, add an `uninstall.php` that calls `delete_metadata( 'user', 0, $meta_key, '', true )`: the last argument deletes that key for every user in one query instead of looping over users. I added it to Notice Tray so its saved "tray off" choice does not outlive the plugin.
+
 ### 2026-11-15
 `KeyboardEvent.isComposing` (plus `keyCode === 229` for Safari) tells you an IME is mid-composition, so a keydown handler should return early or Enter will fire your action while someone is still confirming a Japanese or Chinese word. I added that guard to Command Deck's result list.
 
