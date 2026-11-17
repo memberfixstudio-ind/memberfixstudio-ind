@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-17
+A WordPress.org `readme.txt` is parsed separately from the plugin header, so keep its short description under 150 characters and set `Stable tag` to a real version number (matching the `Version:` header) rather than `trunk`. I added a `readme.txt` to Clear FAQ Block with those fields checked.
+
 ### 2026-11-16
 When a plugin stores per-user settings, add an `uninstall.php` that calls `delete_metadata( 'user', 0, $meta_key, '', true )`: the last argument deletes that key for every user in one query instead of looping over users. I added it to Notice Tray so its saved "tray off" choice does not outlive the plugin.
 
