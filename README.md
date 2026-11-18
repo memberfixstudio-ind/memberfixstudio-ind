@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-18:** Format a real Unix timestamp with `wp_date( $format, $timestamp )`, not `date_i18n()`: `wp_date()` converts to the site's timezone, while `date_i18n()` expects a timestamp that already has the offset added, so a UTC expiry can show a day early or late. I switched Member Snapshot's renewal, end and "member since" dates to `wp_date()`.
 - **2026-11-17:** A WordPress.org `readme.txt` is parsed separately from the plugin header, so keep its short description under 150 characters and set `Stable tag` to a real version number (matching the `Version:` header) rather than `trunk`. I added a `readme.txt` to Clear FAQ Block with those fields checked.
 - **2026-11-16:** When a plugin stores per-user settings, add an `uninstall.php` that calls `delete_metadata( 'user', 0, $meta_key, '', true )`: the last argument deletes that key for every user in one query instead of looping over users. I added it to Notice Tray so its saved "tray off" choice does not outlive the plugin.
-- **2026-11-15:** `KeyboardEvent.isComposing` (plus `keyCode === 229` for Safari) tells you an IME is mid-composition, so a keydown handler should return early or Enter will fire your action while someone is still confirming a Japanese or Chinese word. I added that guard to Command Deck's result list.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
