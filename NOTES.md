@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-19
+Pass an `AbortController` signal to `wp.apiFetch( { path, signal } )` and call `controller.abort()` when the query changes, then ignore the `AbortError` in your catch handler: a debounced live search can otherwise show a slow response for an older query under the newer one. I added this to Command Deck, which now cancels pending searches when you keep typing or close the palette.
+
 ### 2026-11-18
 Format a real Unix timestamp with `wp_date( $format, $timestamp )`, not `date_i18n()`: `wp_date()` converts to the site's timezone, while `date_i18n()` expects a timestamp that already has the offset added, so a UTC expiry can show a day early or late. I switched Member Snapshot's renewal, end and "member since" dates to `wp_date()`.
 
