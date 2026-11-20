@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-20
+Since WordPress 6.4, render admin notices with `wp_admin_notice( $message, array( 'type' => 'warning', 'dismissible' => true ) )` instead of hand-written `<div class="notice">` markup: core builds the classes for you, and other code can adjust every notice through the `wp_admin_notice_args` and `wp_admin_notice_markup` filters. That consistent `.notice notice-{type}` markup is also what tools like Notice Tray rely on when they sort notices by severity.
+
 ### 2026-11-19
 Pass an `AbortController` signal to `wp.apiFetch( { path, signal } )` and call `controller.abort()` when the query changes, then ignore the `AbortError` in your catch handler: a debounced live search can otherwise show a slow response for an older query under the newer one. I added this to Command Deck, which now cancels pending searches when you keep typing or close the palette.
 

@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-20:** Since WordPress 6.4, render admin notices with `wp_admin_notice( $message, array( 'type' => 'warning', 'dismissible' => true ) )` instead of hand-written `<div class="notice">` markup: core builds the classes for you, and other code can adjust every notice through the `wp_admin_notice_args` and `wp_admin_notice_markup` filters. That consistent `.notice notice-{type}` markup is also what tools like Notice Tray rely on when they sort notices by severity.
 - **2026-11-19:** Pass an `AbortController` signal to `wp.apiFetch( { path, signal } )` and call `controller.abort()` when the query changes, then ignore the `AbortError` in your catch handler: a debounced live search can otherwise show a slow response for an older query under the newer one. I added this to Command Deck, which now cancels pending searches when you keep typing or close the palette.
 - **2026-11-18:** Format a real Unix timestamp with `wp_date( $format, $timestamp )`, not `date_i18n()`: `wp_date()` converts to the site's timezone, while `date_i18n()` expects a timestamp that already has the offset added, so a UTC expiry can show a day early or late. I switched Member Snapshot's renewal, end and "member since" dates to `wp_date()`.
-- **2026-11-17:** A WordPress.org `readme.txt` is parsed separately from the plugin header, so keep its short description under 150 characters and set `Stable tag` to a real version number (matching the `Version:` header) rather than `trunk`. I added a `readme.txt` to Clear FAQ Block with those fields checked.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
