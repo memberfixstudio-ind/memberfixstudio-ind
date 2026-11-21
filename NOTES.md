@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-21
+In the Interactivity API, use `data-wp-on-async--click` instead of `data-wp-on--click` when the handler does not need `event.preventDefault()` or `stopPropagation()`: the async version yields to the main thread before running your action, which helps keep Interaction to Next Paint low. If you need the event synchronously, call `yield` after reading it or use `splitTask()` for long work.
+
 ### 2026-11-20
 Since WordPress 6.4, render admin notices with `wp_admin_notice( $message, array( 'type' => 'warning', 'dismissible' => true ) )` instead of hand-written `<div class="notice">` markup: core builds the classes for you, and other code can adjust every notice through the `wp_admin_notice_args` and `wp_admin_notice_markup` filters. That consistent `.notice notice-{type}` markup is also what tools like Notice Tray rely on when they sort notices by severity.
 
