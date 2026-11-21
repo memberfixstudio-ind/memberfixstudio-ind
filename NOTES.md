@@ -56,6 +56,9 @@ PHP strings and block editor strings are translated separately: `load_plugin_tex
 ## Weekly recaps
 
 <!-- RECAPS:START -->
+### Week of 2026-11-16
+This week I shipped [Session Watch](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/session-watch), which adds **Users → Signed in** so admins can see every active session with its device, IP address and login time, spot accounts signed in from several IP addresses, and sign out one device, one person or everyone else. Command Deck now ignores Enter while an IME composition is in progress and cancels pending searches when you keep typing, Member Snapshot shows card dates in the site timezone, Notice Tray removes its user meta on uninstall, Clear FAQ Block and Notice Tray gained WordPress.org-format `readme.txt` files, and every toolbox plugin is now linted on PHP 7.4, 8.1 and 8.3. Six of this week's seven notes went into code: the IME guard and `AbortController` in Command Deck, `wp_date()` in Member Snapshot (and Session Watch), `delete_metadata()` on uninstall in Notice Tray, the `readme.txt` fields in Clear FAQ Block, and `wp_admin_notice()` for Session Watch's result messages.
+
 ### Week of 2026-11-09
 This week I shipped [Notice Tray](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/notice-tray), a small plugin that moves the pile of plugin and theme notices off the top of every wp-admin screen into a tray in the admin bar, while errors and "Settings saved" messages stay on the page. Command Deck now validates actions from its filter and loads its translations on `init`, Clear FAQ Block and Member Snapshot load their PHP and block editor translations, and both gained CI workflows that lint the PHP (Member Snapshot on 7.4, 8.1 and 8.3). Three of this week's notes went straight into code: `esc_url_raw()` for filtered URLs and `load_plugin_textdomain()` on `init` in Command Deck, and the multi-version PHP lint matrix in Member Snapshot.
 
