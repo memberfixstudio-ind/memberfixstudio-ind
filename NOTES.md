@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-22
+Setting a block attribute from stale state is easy to get wrong: since WordPress 6.9 the `setAttributes` prop passed to a block's `Edit` component accepts an updater function, so `setAttributes( ( prev ) => ( { items: [ ...prev.items, newItem ] } ) )` always builds on the latest attributes instead of the `items` captured by your closure. I haven't switched Clear FAQ Block's handlers over yet.
+
 ### 2026-11-21
 In the Interactivity API, use `data-wp-on-async--click` instead of `data-wp-on--click` when the handler does not need `event.preventDefault()` or `stopPropagation()`: the async version yields to the main thread before running your action, which helps keep Interaction to Next Paint low. If you need the event synchronously, call `yield` after reading it or use `splitTask()` for long work.
 

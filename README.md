@@ -33,7 +33,7 @@ I'm Rohan Salave, the developer behind [MemberFix Studio](https://memberfix.stud
 | [Command Deck](https://github.com/memberfixstudio-ind/command-deck) | Find admin screens and content with forgiving keyboard search | WordPress REST API · JavaScript |
 | [Clear FAQ Block](https://github.com/memberfixstudio-ind/clear-faq-block) | Paste and edit an FAQ; publish native accordions without front-end JavaScript | `block.json` · React · PHP |
 | [Member Snapshot](https://github.com/memberfixstudio-ind/member-snapshot) | Show membership plans and course progress in one card | MemberPress · LearnDash · block/shortcode |
-| [WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox) | Small, focused WordPress utilities, such as [Notice Tray](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/notice-tray) for tidying admin notices | PHP · WordPress APIs |
+| [WordPress Toolbox](https://github.com/memberfixstudio-ind/wordpress-toolbox) | Small, focused WordPress utilities, such as [Notice Tray](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/notice-tray) for tidying admin notices and [Session Watch](https://github.com/memberfixstudio-ind/wordpress-toolbox/tree/main/session-watch) for reviewing and ending user sessions | PHP · WordPress APIs |
 
 ## How I approach the work
 
@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-22:** Setting a block attribute from stale state is easy to get wrong: since WordPress 6.9 the `setAttributes` prop passed to a block's `Edit` component accepts an updater function, so `setAttributes( ( prev ) => ( { items: [ ...prev.items, newItem ] } ) )` always builds on the latest attributes instead of the `items` captured by your closure. I haven't switched Clear FAQ Block's handlers over yet.
 - **2026-11-21:** In the Interactivity API, use `data-wp-on-async--click` instead of `data-wp-on--click` when the handler does not need `event.preventDefault()` or `stopPropagation()`: the async version yields to the main thread before running your action, which helps keep Interaction to Next Paint low. If you need the event synchronously, call `yield` after reading it or use `splitTask()` for long work.
 - **2026-11-20:** Since WordPress 6.4, render admin notices with `wp_admin_notice( $message, array( 'type' => 'warning', 'dismissible' => true ) )` instead of hand-written `<div class="notice">` markup: core builds the classes for you, and other code can adjust every notice through the `wp_admin_notice_args` and `wp_admin_notice_markup` filters. That consistent `.notice notice-{type}` markup is also what tools like Notice Tray rely on when they sort notices by severity.
-- **2026-11-19:** Pass an `AbortController` signal to `wp.apiFetch( { path, signal } )` and call `controller.abort()` when the query changes, then ignore the `AbortError` in your catch handler: a debounced live search can otherwise show a slow response for an older query under the newer one. I added this to Command Deck, which now cancels pending searches when you keep typing or close the palette.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
