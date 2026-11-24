@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-24:** To print inline JavaScript from PHP, use `wp_print_inline_script_tag( $js, array( 'id' => 'my-data' ) )` (since WordPress 5.7) instead of echoing a `<script>` tag: it runs the attributes through the `wp_inline_script_attributes` filter, so a CSP plugin can add a nonce. Command Deck still echoes its data tag by hand with `wp_json_encode()` and `JSON_HEX_TAG`, so that is a change I could make there.
 - **2026-11-23:** Since WordPress 6.9, `esc_url()` and `esc_url_raw()` prepend `https://` to a schemeless URL when `'https'` is the first entry in `$protocols`, e.g. `esc_url( $url, array( 'https', 'http' ) )`; with the default list they still fall back to `http://`. I haven't needed it in Member Snapshot, whose links all come from `get_permalink()` or filters, but it is the way to handle a bare handle or domain typed into a URL field.
 - **2026-11-22:** Setting a block attribute from stale state is easy to get wrong: since WordPress 6.9 the `setAttributes` prop passed to a block's `Edit` component accepts an updater function, so `setAttributes( ( prev ) => ( { items: [ ...prev.items, newItem ] } ) )` always builds on the latest attributes instead of the `items` captured by your closure. I haven't switched Clear FAQ Block's handlers over yet.
-- **2026-11-21:** In the Interactivity API, use `data-wp-on-async--click` instead of `data-wp-on--click` when the handler does not need `event.preventDefault()` or `stopPropagation()`: the async version yields to the main thread before running your action, which helps keep Interaction to Next Paint low. If you need the event synchronously, call `yield` after reading it or use `splitTask()` for long work.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
