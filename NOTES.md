@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-25
+`add_query_arg()` does not URL-encode the values you pass it, so encode each one yourself with `rawurlencode()`, e.g. `add_query_arg( 'redirect', rawurlencode( $back ), $url )`; an unencoded `&` or `#` in a return address will otherwise split or truncate the query string. Only the existing query string of the URL you pass in is re-encoded. Notice Tray's toggle link already does this for its return address.
+
 ### 2026-11-24
 To print inline JavaScript from PHP, use `wp_print_inline_script_tag( $js, array( 'id' => 'my-data' ) )` (since WordPress 5.7) instead of echoing a `<script>` tag: it runs the attributes through the `wp_inline_script_attributes` filter, so a CSP plugin can add a nonce. Command Deck still echoes its data tag by hand with `wp_json_encode()` and `JSON_HEX_TAG`, so that is a change I could make there.
 
