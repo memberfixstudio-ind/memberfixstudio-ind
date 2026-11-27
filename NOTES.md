@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-27
+A `render_block` filter can run more than once for the same block in one request, for example when something runs the content filters again, so side effects like collecting schema data should be idempotent: key the collected entries, e.g. `$items[ md5( wp_json_encode( $entry ) ) ] = $entry;`, and return `array_values( $items )`. Clear FAQ Block now does this, so a repeated render lists each question in its FAQ schema once.
+
 ### 2026-11-26
 Listen for `pageshow` and check `event.persisted` when a page can be restored from the browser's back/forward cache: restored pages skip `DOMContentLoaded` and keep their JavaScript state, so a "submitted" flag set to stop double clicks leaves the button locked after Back. I added that reset to Session Watch's sign-out buttons, and passed a function to `.replace( '%s', () => name )` so a `$&` in a display name isn't read as a replacement pattern.
 
