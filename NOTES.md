@@ -5,6 +5,9 @@ Things I learned while building WordPress plugins, newest first.
 ## Daily notes
 
 <!-- NOTES:START -->
+### 2026-11-28
+Treat whatever `apply_filters()` returns as untrusted input: any callback can hand back a string, `null` or a negative number, so cast and clamp it at the point of use, e.g. `$days = max( 0, (int) apply_filters( 'my_plugin_days', 14, $row ) );`. I did that for the new `member_snapshot_ending_soon_days` filter in Member Snapshot, which lets a site change how early a plan is flagged "ending soon".
+
 ### 2026-11-27
 A `render_block` filter can run more than once for the same block in one request, for example when something runs the content filters again, so side effects like collecting schema data should be idempotent: key the collected entries, e.g. `$items[ md5( wp_json_encode( $entry ) ) ] = $entry;`, and return `array_values( $items )`. Clear FAQ Block now does this, so a repeated render lists each question in its FAQ schema once.
 

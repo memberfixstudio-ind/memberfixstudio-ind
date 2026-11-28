@@ -47,9 +47,9 @@ Open to custom WordPress plugins, Gutenberg blocks, WooCommerce troubleshooting,
 ## What I'm learning
 
 <!-- LEARNING:START -->
+- **2026-11-28:** Treat whatever `apply_filters()` returns as untrusted input: any callback can hand back a string, `null` or a negative number, so cast and clamp it at the point of use, e.g. `$days = max( 0, (int) apply_filters( 'my_plugin_days', 14, $row ) );`. I did that for the new `member_snapshot_ending_soon_days` filter in Member Snapshot, which lets a site change how early a plan is flagged "ending soon".
 - **2026-11-27:** A `render_block` filter can run more than once for the same block in one request, for example when something runs the content filters again, so side effects like collecting schema data should be idempotent: key the collected entries, e.g. `$items[ md5( wp_json_encode( $entry ) ) ] = $entry;`, and return `array_values( $items )`. Clear FAQ Block now does this, so a repeated render lists each question in its FAQ schema once.
 - **2026-11-26:** Listen for `pageshow` and check `event.persisted` when a page can be restored from the browser's back/forward cache: restored pages skip `DOMContentLoaded` and keep their JavaScript state, so a "submitted" flag set to stop double clicks leaves the button locked after Back. I added that reset to Session Watch's sign-out buttons, and passed a function to `.replace( '%s', () => name )` so a `$&` in a display name isn't read as a replacement pattern.
-- **2026-11-25:** `add_query_arg()` does not URL-encode the values you pass it, so encode each one yourself with `rawurlencode()`, e.g. `add_query_arg( 'redirect', rawurlencode( $back ), $url )`; an unencoded `&` or `#` in a return address will otherwise split or truncate the query string. Only the existing query string of the URL you pass in is re-encoded. Notice Tray's toggle link already does this for its return address.
 <!-- LEARNING:END -->
 
 [All development notes](NOTES.md)
